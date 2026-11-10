@@ -1,0 +1,28 @@
+[package]
+name = "rentwatch"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.94"
+license = "MIT"
+description = "Reconcile what Soroban predicted a transaction would cost against what the network actually charged."
+repository = "https://github.com/onyinye-dev/rentwatch"
+keywords = ["stellar", "soroban", "fees", "rent", "ttl"]
+categories = ["command-line-utilities"]
+
+[lib]
+name = "rentwatch"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rentwatch"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.6.7", features = ["derive"] }
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.154"
+stellar-xdr = { version = "28.0.1", features = ["std", "base64"] }
+ureq = { version = "3.5.1", features = ["json"] }
+
+[profile.release]
+strip = true
